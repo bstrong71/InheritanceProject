@@ -7,6 +7,7 @@ public class Notification {
 
     protected String status;
 
+    // constructor
     public Notification(String subject, String body) {
         this.subject = subject;
         this.body = body;
@@ -14,6 +15,7 @@ public class Notification {
         this.status = "default";
     }
 
+    // getters
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -26,6 +28,7 @@ public class Notification {
         return body;
     }
 
+    // methods
     public void transport() throws NoTransportException{
     }
 
