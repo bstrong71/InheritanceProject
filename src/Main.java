@@ -10,5 +10,9 @@ public class Main {
         newText.showStatus();
 
         newEmail.printSomeText();
+
+        Object emailNotificationClone = newEmail.clone();
+
+        emailNotificationClone.equals(newEmail);
     }
 }

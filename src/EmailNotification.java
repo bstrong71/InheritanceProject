@@ -28,4 +28,28 @@ public class EmailNotification extends Notification {
         super.printSomeText();
         System.out.println("THIS IS THE ADDITIONAL TEXT");
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        EmailNotification that = (EmailNotification) o;
+
+        if (recipient != null ? !recipient.equals(that.recipient) : that.recipient != null) return false;
+        return smtpProvider != null ? smtpProvider.equals(that.smtpProvider) : that.smtpProvider == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = recipient != null ? recipient.hashCode() : 0;
+        result = 31 * result + (smtpProvider != null ? smtpProvider.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    protected Object clone() {
+        EmailNotification newEmail = new EmailNotification(this.getSubject(), this.getBody(), this.getRecipient(), this.getSmtpProvider());
+        return newEmail;
+    }
 }
